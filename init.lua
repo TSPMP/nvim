@@ -36,12 +36,19 @@ vim.keymap.set('n', '<Leader>q', ':lua FzfLua.quickfix()<Enter>', {remap=false, 
 vim.keymap.set('n', '<Leader>l', ':lua FzfLua.loclist()<Enter>', {remap=false, desc='Search loclist'})
 vim.keymap.set('n', '<Leader>/', ':lua FzfLua.lgrep_curbuf()<Enter>', {remap=false, desc='Search current buffer'})
 vim.keymap.set('n', '<Leader>s', ':lua FzfLua.live_grep()<Enter>', {remap=false, desc='Search current working directory'})
+vim.keymap.set('v', '<Leader>s', ':lua FzfLua.grep_visual()<Enter>', {remap=false, desc='Search selection in current working directory'})
 vim.keymap.set('n', '<Leader>S',
     function()
         local buf_name = vim.api.nvim_buf_get_name(0)
         local buf_dir = vim.fn.fnamemodify(buf_name, ':p:h')
         FzfLua.live_grep({cwd = buf_dir})
     end, {remap=false, desc='Search next to current buffer'})
+vim.keymap.set('v', '<Leader>S',
+    function()
+        local buf_name = vim.api.nvim_buf_get_name(0)
+        local buf_dir = vim.fn.fnamemodify(buf_name, ':p:h')
+        FzfLua.grep_visual({cwd = buf_dir})
+    end, {remap=false, desc='Search selection next to current buffer'})
 vim.keymap.set('n', '<Leader>t', ':lua FzfLua.treesitter()<Enter>', {remap=false, desc='Search treesitter nodes'})
 
 -- cursor navigation
