@@ -8,6 +8,7 @@ return {
       -- additional_vim_regex_highlighting = { 'ruby', 'markdown' },
     },
     indent = { enable = true },
+    folds = { enable = true },
     ensure_installed = {
       'bash',
       'c',
@@ -21,8 +22,5 @@ return {
       'vimdoc',
     },
     auto_install = true,
-  },
-  config = function(_, opts)
-    require('nvim-treesitter.configs').setup(opts)
-  end,
+  }
 }
