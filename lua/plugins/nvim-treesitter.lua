@@ -1,5 +1,7 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  branch = 'master',
+  lazy = false,
   build = ':TSUpdate',
   opts = {
     highlight = {
@@ -22,5 +24,8 @@ return {
       'vimdoc',
     },
     auto_install = true,
-  }
+  },
+  config = function(_, opts)
+      require('nvim-treesitter.configs').setup(opts)
+  end
 }
