@@ -82,7 +82,7 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.lsp.start({
       name = 'quint',
-      cmd = { 'npm', 'exec', 'quint-language-server', '--stdio' },
+      cmd = { 'npm', 'exec', '--', 'quint-language-server', '--stdio' },
     })
   end,
 })
