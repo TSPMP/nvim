@@ -70,6 +70,23 @@ vim.keymap.set({'n', 'v'}, '<Leader>y', '"+y', {remap=false, desc='Yank to syste
 vim.keymap.set({'n', 'v'}, '<Leader>p', '"+p', {remap=false, desc='Paste after from system clipboard'})
 vim.keymap.set({'n', 'v'}, '<Leader>P', '"+P', {remap=false, desc='Paste before from system clipboard'})
 
+-- languages
+vim.filetype.add({
+  extension = {
+    qnt = "quint",
+  },
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'quint',
+  callback = function()
+    vim.lsp.start({
+      name = 'quint',
+      cmd = { 'npm', 'exec', 'quint-language-server', '--stdio' },
+    })
+  end,
+})
+
 -- plugins
 require('config.lazy')
 
