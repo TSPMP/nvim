@@ -87,6 +87,18 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- treesitter
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'rust', 'python', 'typescript' },
+  callback = function()
+    vim.treesitter.start() -- highlighting
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- folds
+    vim.wo.foldmethod = 'expr'
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" -- indentation
+  end,
+})
+
 -- plugins
 require('config.lazy')
 
@@ -94,6 +106,7 @@ vim.cmd [[colorscheme retrobox]]
 
 -- lsp
 vim.lsp.enable('rust_analyzer')
+vim.lsp.enable('clangd')
 local lsp_augroup = vim.api.nvim_create_augroup('TspmpLsp', {clear = true})
 vim.api.nvim_create_autocmd('LspAttach', {
         desc = 'Define keymaps for buffers with a LSP',
