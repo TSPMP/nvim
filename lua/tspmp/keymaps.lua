@@ -43,3 +43,6 @@ vim.keymap.set({'n', 'v'}, '<Leader>y', '"+y', {remap=false, desc='Yank to syste
 vim.keymap.set({'n', 'v'}, '<Leader>p', '"+p', {remap=false, desc='Paste after from system clipboard'})
 vim.keymap.set({'n', 'v'}, '<Leader>P', '"+P', {remap=false, desc='Paste before from system clipboard'})
 
+-- diff
+vim.keymap.set('n', 'gd', ']c', {remap=false, desc='Jump forwards to next diff'})
+vim.keymap.set('n', 'gD', '[c', {remap=false, desc='Jump backwards to next diff'})
