@@ -18,8 +18,7 @@ vim.pack.add({
     "https://github.com/nvim-lualine/lualine.nvim", -- depends on nvim-tree/nvim-web-devicons
     "https://github.com/ibhagwan/fzf-lua", -- depends on nvim-tree/nvim-web-devicons
 
-    "https://github.com/neovim-treesitter/treesitter-parser-registry",
-    "https://github.com/neovim-treesitter/nvim-treesitter", -- depends on neovim-treesitter/treesitter-parser-registry
+    {src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main"},
 
     "https://github.com/rafamadriz/friendly-snippets",
     {src = "https://github.com/saghen/blink.cmp", version = vim.version.range('1.x')} -- depends on rafamadriz/friendly-snippets
