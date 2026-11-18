@@ -46,3 +46,6 @@ vim.keymap.set({'n', 'v'}, '<Leader>P', '"+P', {remap=false, desc='Paste before 
 -- diff
 vim.keymap.set('n', 'gd', ']c', {remap=false, desc='Jump forwards to next diff'})
 vim.keymap.set('n', 'gD', '[c', {remap=false, desc='Jump backwards to next diff'})
+
+-- exit terminal mode
+vim.keymap.set('t', '<C-#><C-n>', [[<C-\><C-n>]], {remap=false, desc='Exit terminal mode'})
