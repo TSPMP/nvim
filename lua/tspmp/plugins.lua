@@ -13,15 +13,13 @@ vim.pack.add({
     "https://github.com/folke/which-key.nvim",
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/arkav/lualine-lsp-progress",
-
     "https://github.com/nvim-tree/nvim-web-devicons",
     "https://github.com/nvim-lualine/lualine.nvim", -- depends on nvim-tree/nvim-web-devicons
     "https://github.com/ibhagwan/fzf-lua", -- depends on nvim-tree/nvim-web-devicons
-
     {src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main"},
-
     "https://github.com/rafamadriz/friendly-snippets",
-    {src = "https://github.com/saghen/blink.cmp", version = vim.version.range('1.x')} -- depends on rafamadriz/friendly-snippets
+    {src = "https://github.com/saghen/blink.cmp", version = vim.version.range('1.x')}, -- depends on rafamadriz/friendly-snippets
+    "https://github.com/MeanderingProgrammer/render-markdown.nvim" -- depends on nvim-treesitter/nvim-treesitter and nvim-tree/nvim-web-devicons
 })
 
 -- TODO move these to separate files in plugin/lua/
@@ -37,6 +35,7 @@ require('lualine').setup {
     }
 }
 require('fzf-lua').setup()
+require('render-markdown').setup()
 require('blink.cmp').setup {
     -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
     -- 'super-tab' for mappings similar to vscode (tab to accept)
